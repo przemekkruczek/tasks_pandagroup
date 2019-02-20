@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <ul class="swatch">
+    <select class="font-select">
+      <option value="1">Arial</option>
+      <option value="2">Calibri</option>
+      <option value="3">Comic Sans</option>
+      <option value="4">Open Sans</option>
+      <option value="5">Jakis losowy font</option>
+    </select>
+    <li class="swatch-item" data-value="1">Arial</li>
+    <li class="swatch-item" data-value="2">Calibri</li>
+    <li class="swatch-item" data-value="3">Comic Sans</li>
+    <li class="swatch-item" data-value="4">Open Sans</li>
+    <li class="swatch-item" data-value="5">Jakis losowy font</li>
+  </ul>
+<script src="https://code.jquery.com/jquery-2.2.0.min.js" ></script>
+<script>
+  var $j = jQuery.noConflict();
+
+
+  //              Font Swatch
+
+  var FontSwatch = function (swatch, select) {
+    this.swatch = swatch;
+    this.select = select;
+    this.bindEvents();
+  };
+
+  FontSwatch.prototype.bindEvents = function () {
+    this.swatch.find('.swatch-item').on('click', this.handleSwatchClick.bind(this)); //->do funkcji handleSwachClick przekazuję nowy kontekst dla this(z konstruktora).
+  };
+
+  FontSwatch.prototype.handleSwatchClick = function (e) {
+    var target = $j(e.currentTarget);
+    if (this.setSelectValue(target.data('value'))) {
+      this.select.trigger('change');
+      this.addSelectedClass(target);
+    }
+  };
+
+  FontSwatch.prototype.setSelectValue = function (value) {
+    return this.select.val(value).length === 1;
+  };
+
+  FontSwatch.prototype.addSelectedClass = function (selectedItem) {
+    this.swatch.children().removeClass('selected');
+    selectedItem.addClass('selected');
+  };
+
+  fontSwatch = new FontSwatch($j('.swatch'), $j('.font-select'))
+</script>
+</body>
+</html>

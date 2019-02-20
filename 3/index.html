@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>Just one more cat!</button>
+<script src="https://code.jquery.com/jquery-2.2.0.min.js" ></script>
+<script>
+    $(function () {
+            const photoUrl = 'https://api.giphy.com/v1/gifs/random?tag=cat&api_key=3POh8A1400wGLuMp3mtAAz7QdO2ptysD&limit=1';
+            const button = $('button');
+            const body = $('body');
+
+            function insertphoto(photo) {
+                let cat = $('<div class="cat"  style="background-image: url(' + photo + '); height: 200px; background-size: contain; background-repeat: no-repeat"></div>');
+                body.append(cat);
+            };
+
+            function loadphoto() {
+                $.ajax({
+                    type: 'GET',
+                    url: photoUrl,
+                    dataType: 'json',
+                    contentType: 'json',
+                }).done(function (response) {
+                    insertphoto(response.data.image_original_url);
+                    console.log(response.data);
+                }).fail(function (error) {
+                    console.log(error)
+                })
+            };
+
+            button.on('click', function (e) {
+                e.preventDefault();
+                loadphoto()
+            })
+        })
+</script>
+</body>
+</html>

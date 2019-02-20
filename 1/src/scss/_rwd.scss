@@ -1,0 +1,93 @@
+@media screen and (max-width: 800px) {
+  .page-menu__container {
+    width: 95%;
+  }
+  .page-header {
+    background-image: url(../../layout/grass.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 320px;
+  }
+  .page-article-1 {
+    padding-bottom: 0px;
+    height: 1140px;
+  }
+  .page-article-1__container {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+  }
+  .page-article-1__article {
+    height: 670px;
+    order: -1;
+  }
+  .page-article-1__aside{
+    margin: 20px 0 0 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  .page_article-1-block {
+    flex-grow: 1;
+    flex-basis: 240px;
+    font-size: 19px;
+    padding: 0 35px 0 35px;
+  }
+  .page_article-1-block:nth-of-type(1) {
+    margin-right: 25px;
+  }
+  .page-article-3__container {
+    width: 95%;
+  }
+}
+@media screen and (max-width: 550px) {
+    .page_article-1-block {
+    flex-basis: 200px;
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .page-menu__container {
+    width: 100%;
+  }
+  .page-header {
+    background-image: url(../../layout/grass.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+  }
+  .page-article-1 {
+    padding-bottom: 0px;
+    height: auto;
+  }
+  .page-article-1__container {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+  }
+  .page-article-1__article {
+    height: 410px;
+    order: -1;
+  }
+  .page-article-1__aside{
+    margin: 20px 0 0 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  .page_article-1-block {
+    flex-grow: 1;
+    flex-basis: 240px;
+    font-size: 19px;
+    padding: 0 35px 0 35px;
+    margin-bottom: 20px;
+  }
+  .page_article-1-block:nth-of-type(1) {
+    margin-right: 0px;
+  }
+  .page-article-3__container {
+    width: 95%;
+  }
+}
